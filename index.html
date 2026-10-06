@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An interactive chip floorplanning game for learning physical design fundamentals."
+    />
+    <title>Floorplan Forge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="lesson-open">
+    <section
+      id="conceptLesson"
+      class="concept-lesson"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lessonStageTitle"
+    >
+      <div class="lesson-backdrop-grid"></div>
+      <div class="lesson-shell">
+        <div class="guide-stage">
+          <div class="guide-orbit orbit-one"></div>
+          <div class="guide-orbit orbit-two"></div>
+          <div class="tommy-talk-bubble" id="tommyBubble">
+            Watch the board—I’ll show you how a chip takes shape!
+          </div>
+          <div class="tommy-guide" aria-label="Tommy, your animated Doberman physical design guide">
+            <div class="tommy-body">
+              <div class="tommy-chest"></div>
+              <div class="tommy-collar"><span>PD</span></div>
+              <div class="tommy-paw"></div>
+            </div>
+            <div class="tommy-head">
+              <div class="tommy-ear left"></div>
+              <div class="tommy-ear right"></div>
+              <div class="tommy-face-mark left"></div>
+              <div class="tommy-face-mark right"></div>
+              <div class="tommy-brow left"></div>
+              <div class="tommy-brow right"></div>
+              <div class="tommy-eye left"></div>
+              <div class="tommy-eye right"></div>
+              <div class="tommy-muzzle"></div>
+              <div class="tommy-nose"></div>
+              <div class="tommy-mouth"></div>
+              <div class="tommy-headset"></div>
+            </div>
+          </div>
+          <div class="guide-nameplate">
+            <span class="online-dot"></span>
+            <div><strong>Tommy</strong><small>Doberman Design Mentor</small></div>
+          </div>
+        </div>
+
+        <div class="lesson-content">
+          <div class="lesson-topline">
+            <span id="lessonStageLabel">ORIENTATION · 1 OF 8</span>
+            <button id="skipLessonButton" class="text-button" type="button">
+              Skip lesson
+            </button>
+          </div>
+
+          <div id="conceptBoard" class="concept-board intro" aria-hidden="true">
+            <div class="board-header">
+              <span><i></i><i></i><i></i></span>
+              <strong id="boardLabel">FLOORPLAN VIEW</strong>
+            </div>
+            <div class="board-canvas">
+              <div class="board-die">
+                <span class="board-die-label">DIE</span>
+                <div class="board-core">
+                  <span class="board-core-label">CORE</span>
+                  <div class="demo-blockage">RESERVED</div>
+                  <div class="demo-macro macro-a">CPU</div>
+                  <div class="demo-macro macro-b">GPU</div>
+                  <div class="demo-macro macro-c">SRAM</div>
+                  <div class="demo-macro macro-d">I/O</div>
+                  <svg class="board-wires" viewBox="0 0 400 205">
+                    <line class="wire-one" x1="82" y1="67" x2="282" y2="60" />
+                    <line class="wire-two" x1="82" y1="67" x2="260" y2="159" />
+                    <line class="wire-three" x1="282" y1="60" x2="260" y2="159" />
+                  </svg>
+                  <div class="congestion-cloud">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="blockage-types">
+                <div class="hard"><strong>HARD</strong><span>No placement</span></div>
+                <div class="soft"><strong>SOFT</strong><span>Restrict cells</span></div>
+                <div class="partial"><strong>PARTIAL</strong><span>Limit density</span></div>
+                <div class="routing"><strong>ROUTING</strong><span>Protect layers</span></div>
+              </div>
+              <div class="board-meter">
+                <span id="boardMetricLabel">QUALITY</span>
+                <div><i></i></div>
+                <strong id="boardMetricValue">READY</strong>
+              </div>
+            </div>
+          </div>
+          <p id="lessonEyebrow" class="eyebrow">WELCOME, DESIGNER</p>
+          <h2 id="lessonStageTitle">Why floorplanning matters</h2>
+          <p id="lessonStageText" class="lesson-stage-text"></p>
+
+          <div id="lessonTakeaway" class="lesson-takeaway">
+            <span>TOMMY’S TIP</span>
+            <p></p>
+          </div>
+
+          <div class="lesson-progress" aria-label="Lesson progress">
+            <div id="lessonProgressDots" class="lesson-progress-dots"></div>
+            <span id="lessonProgressText">1 / 8</span>
+          </div>
+
+          <div class="lesson-actions">
+            <button
+              id="lessonBackButton"
+              class="button button-secondary"
+              type="button"
+              disabled
+            >
+              Back
+            </button>
+            <button
+              id="voiceButton"
+              class="button button-secondary voice-button"
+              type="button"
+              aria-pressed="false"
+            >
+              <span aria-hidden="true">◖))</span> Voice off
+            </button>
+            <button id="lessonNextButton" class="button button-primary" type="button">
+              Next concept
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PHYSICAL DESIGN LAB · MODULE 01</p>
+        <h1>Floorplan Forge</h1>
+      </div>
+      <div class="topbar-actions">
+        <a class="button button-secondary button-link" href="course.html">
+          Course map
+        </a>
+        <a class="button button-secondary button-link" href="visual-guide.html#floorplan">
+          Visual explanation
+        </a>
+        <button id="replayLessonButton" class="button button-secondary" type="button">
+          Meet Tommy
+        </button>
+        <button id="helpButton" class="button button-secondary" type="button">
+          How to play
+        </button>
+        <button id="resetButton" class="button button-danger" type="button">
+          Reset floorplan
+        </button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <aside class="panel mission-panel">
+        <div class="panel-heading">
+          <span class="step-number">01</span>
+          <div>
+            <p class="panel-kicker">Your mission</p>
+            <h2>Build a clean floorplan</h2>
+          </div>
+        </div>
+
+        <p class="mission-copy">
+          Place every macro inside the core. Keep connected blocks close, avoid
+          overlaps, and preserve enough channel space for signals to route
+          between large macros.
+        </p>
+
+        <div class="objective-list" aria-label="Level objectives">
+          <div class="objective" data-objective="inside">
+            <span class="objective-icon" aria-hidden="true">✓</span>
+            <span>All macros inside the core</span>
+          </div>
+          <div class="objective" data-objective="overlap">
+            <span class="objective-icon" aria-hidden="true">✓</span>
+            <span>No macro overlaps</span>
+          </div>
+          <div class="objective" data-objective="channels">
+            <span class="objective-icon" aria-hidden="true">✓</span>
+            <span>All routing channels meet spacing</span>
+          </div>
+          <div class="objective" data-objective="wirelength">
+            <span class="objective-icon" aria-hidden="true">✓</span>
+            <span>Wirelength below 1,050 μm</span>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <p class="panel-kicker">Design insight</p>
+          <h3 id="insightTitle">Start with connectivity</h3>
+          <p id="insightText">
+            Thick fly-lines represent important connections. Place strongly
+            connected macros near each other before refining the layout.
+          </p>
+        </div>
+
+        <details class="constraint-reference">
+          <summary>Halo, keepout & blockage guide</summary>
+          <dl>
+            <div>
+              <dt>Halo / keepout</dt>
+              <dd>Reserved space around a macro for pins, power and routing access.</dd>
+            </div>
+            <div>
+              <dt>Hard placement blockage</dt>
+              <dd>Completely prevents standard-cell placement in the region.</dd>
+            </div>
+            <div>
+              <dt>Soft placement blockage</dt>
+              <dd>Restricts normal cells; optimization cells may be allowed by the flow.</dd>
+            </div>
+            <div>
+              <dt>Partial placement blockage</dt>
+              <dd>Allows placement only up to a specified density.</dd>
+            </div>
+            <div>
+              <dt>Routing blockage</dt>
+              <dd>Prevents signal routing on selected layers or inside a region.</dd>
+            </div>
+          </dl>
+        </details>
+
+        <div class="legend">
+          <div><span class="legend-swatch macro-swatch"></span>Macro</div>
+          <div><span class="legend-swatch halo-swatch"></span>Macro halo</div>
+          <div><span class="legend-swatch blockage-swatch"></span>Blockage</div>
+          <div><span class="legend-line"></span>Input → output signal</div>
+        </div>
+      </aside>
+
+      <section class="workspace-card" aria-label="Interactive floorplanning area">
+        <div class="workspace-header">
+          <div>
+            <p class="panel-kicker">Interactive canvas</p>
+            <h2>Core area · 1000 × 700 μm</h2>
+          </div>
+          <div class="status-pill" id="statusPill">Planning</div>
+        </div>
+
+        <div class="view-tabs" role="tablist" aria-label="Floorplan views">
+          <button
+            id="playerViewTab"
+            class="view-tab active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+          >
+            Your floorplan
+          </button>
+          <button
+            id="bestViewTab"
+            class="view-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+          >
+            Best result <span>1000 pts</span>
+          </button>
+        </div>
+
+        <div class="canvas-wrap">
+          <svg
+            id="floorplan"
+            viewBox="0 0 1000 700"
+            role="img"
+            aria-labelledby="canvasTitle canvasDescription"
+          >
+            <title id="canvasTitle">Chip floorplanning game canvas</title>
+            <desc id="canvasDescription">
+              Drag macros inside the chip core while avoiding overlaps and a
+              central placement blockage.
+            </desc>
+            <defs>
+              <pattern
+                id="smallGrid"
+                width="25"
+                height="25"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 25 0 L 0 0 0 25"
+                  fill="none"
+                  stroke="rgba(123, 153, 173, 0.1)"
+                  stroke-width="1"
+                />
+              </pattern>
+              <pattern
+                id="grid"
+                width="100"
+                height="100"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="100" height="100" fill="url(#smallGrid)" />
+                <path
+                  d="M 100 0 L 0 0 0 100"
+                  fill="none"
+                  stroke="rgba(123, 153, 173, 0.2)"
+                  stroke-width="1.5"
+                />
+              </pattern>
+              <filter id="macroShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow
+                  dx="0"
+                  dy="8"
+                  stdDeviation="8"
+                  flood-color="#00131f"
+                  flood-opacity="0.35"
+                />
+              </filter>
+              <marker
+                id="signalArrow"
+                viewBox="0 0 10 10"
+                refX="9"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#3ee7d1" />
+              </marker>
+              <marker
+                id="criticalSignalArrow"
+                viewBox="0 0 10 10"
+                refX="9"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff8b4c" />
+              </marker>
+            </defs>
+
+            <rect class="core-background" width="1000" height="700" rx="8" />
+            <rect width="1000" height="700" rx="8" fill="url(#grid)" />
+            <g id="connectionsLayer"></g>
+            <g id="channelsLayer"></g>
+
+            <g class="blockage" aria-label="Placement blockage">
+              <rect x="425" y="265" width="150" height="170" rx="8" />
+              <path d="M440 280l120 140M475 280l85 100M440 330l75 90" />
+              <text x="500" y="350">HARD BLOCKAGE</text>
+              <text x="500" y="375" class="blockage-subtitle">
+                NO CELL OR MACRO PLACEMENT
+              </text>
+            </g>
+
+            <g id="macrosLayer"></g>
+
+            <g class="io-pin">
+              <rect x="-4" y="84" width="18" height="72" rx="3" />
+              <circle cx="14" cy="120" r="6" />
+              <text x="25" y="112">CHIP INPUT</text>
+              <text x="25" y="132" class="io-net-name">DDR DATA</text>
+            </g>
+            <g class="io-pin">
+              <rect x="986" y="524" width="18" height="72" rx="3" />
+              <circle cx="986" cy="560" r="6" />
+              <text x="975" y="552" text-anchor="end">CHIP OUTPUT</text>
+              <text x="975" y="572" text-anchor="end" class="io-net-name">
+                PCIe TX
+              </text>
+            </g>
+          </svg>
+          <div id="dragHint" class="drag-hint">Drag a macro to begin</div>
+          <div id="bestResultBadge" class="best-result-badge" hidden>
+            <span>REFERENCE FLOORPLAN</span>
+            <strong>Maximum score · 1000</strong>
+            <small>741 μm weighted wirelength · 0 violations</small>
+          </div>
+        </div>
+
+        <div class="live-coach" aria-label="Live feedback from Tommy">
+          <div class="coach-avatar" aria-hidden="true">
+            <div class="coach-dog-ear left"></div>
+            <div class="coach-dog-ear right"></div>
+            <div class="coach-dog-head">
+              <span class="coach-dog-mark left"></span>
+              <span class="coach-dog-mark right"></span>
+              <span class="coach-dog-eye left"></span>
+              <span class="coach-dog-eye right"></span>
+              <span class="coach-dog-muzzle"></span>
+              <span class="coach-dog-nose"></span>
+            </div>
+          </div>
+          <div class="coach-message">
+            <div class="coach-heading">
+              <span><i></i> TOMMY · LIVE GUIDE</span>
+              <button id="coachVoiceButton" type="button" aria-label="Toggle Tommy's voice">
+                Voice off
+              </button>
+            </div>
+            <p id="coachCommentary" aria-live="polite">
+              I’ll analyze every move. Start by dragging a macro connected by a
+              thick orange fly-line.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel metrics-panel">
+        <div class="panel-heading compact">
+          <span class="step-number">02</span>
+          <div>
+            <p class="panel-kicker">Live analysis</p>
+            <h2>Design health</h2>
+          </div>
+        </div>
+
+        <div class="score-card">
+          <div>
+            <span class="score-label">Floorplan score</span>
+            <strong id="scoreValue">0</strong>
+          </div>
+          <div class="grade-ring" id="gradeRing">
+            <span id="gradeValue">–</span>
+          </div>
+        </div>
+
+        <div class="metric-list">
+          <div class="metric">
+            <div class="metric-row">
+              <span>Wirelength</span>
+              <strong id="wirelengthValue">0 μm</strong>
+            </div>
+            <div class="meter"><span id="wirelengthMeter"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-row">
+              <span>Macro utilization</span>
+              <strong id="utilizationValue">0%</strong>
+            </div>
+            <div class="meter"><span id="utilizationMeter"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-row">
+              <span>Violations</span>
+              <strong id="violationsValue">0</strong>
+            </div>
+            <div class="meter danger"><span id="violationsMeter"></span></div>
+          </div>
+          <div class="metric">
+            <div class="metric-row">
+              <span>Congestion risk</span>
+              <strong id="congestionValue">0%</strong>
+            </div>
+            <div class="meter congestion"><span id="congestionMeter"></span></div>
+          </div>
+        </div>
+
+        <div class="macro-list">
+          <p class="panel-kicker">Macro inventory</p>
+          <div id="macroInventory"></div>
+        </div>
+
+        <div class="signal-list">
+          <div class="signal-list-heading">
+            <p class="panel-kicker">Training-model signal traffic</p>
+            <span>Thickness = bus size</span>
+          </div>
+          <div id="signalInventory"></div>
+        </div>
+
+        <button id="checkButton" class="button button-primary check-button" type="button">
+          Check my floorplan
+        </button>
+      </aside>
+    </main>
+
+    <dialog id="helpDialog">
+      <button id="closeHelpButton" class="dialog-close" aria-label="Close">×</button>
+      <p class="eyebrow">QUICK TUTORIAL</p>
+      <h2>Think like a floorplanner</h2>
+      <ol>
+        <li><strong>Drag macros</strong> into the outlined core area.</li>
+        <li><strong>Follow the fly-lines:</strong> shorter lines mean shorter wires.</li>
+        <li><strong>Avoid red states:</strong> they indicate overlap or blockage violations.</li>
+        <li><strong>Watch the score</strong> and satisfy all three objectives.</li>
+      </ol>
+      <button id="startButton" class="button button-primary" type="button">
+        Start designing
+      </button>
+    </dialog>
+
+    <div id="resultToast" class="result-toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

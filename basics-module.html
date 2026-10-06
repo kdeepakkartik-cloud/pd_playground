@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VLSI Basics Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="course.css" />
+  </head>
+  <body class="module-page lesson-open">
+    <section id="basicLesson" class="module-lesson" role="dialog" aria-modal="true">
+      <div class="module-lesson-card">
+        <div class="lesson-tommy">
+          <div class="course-dog large" aria-hidden="true">
+            <span class="ear left"></span><span class="ear right"></span>
+            <span class="face"><i></i><i></i><b></b></span>
+          </div>
+          <strong>Tommy</strong>
+          <span>VLSI Basics Mentor</span>
+          <p id="basicSpeech"></p>
+        </div>
+        <div class="module-board">
+          <div class="demo-screen" id="basicDemo">
+            <span class="demo-chip"></span>
+            <span class="demo-node one"></span>
+            <span class="demo-node two"></span>
+            <span class="demo-node three"></span>
+            <span class="demo-path"></span>
+            <div id="basicSymbolDiagram" class="basic-symbol-diagram"></div>
+            <strong id="basicDemoWord"></strong>
+          </div>
+          <p class="eyebrow" id="basicLessonKicker"></p>
+          <h1 id="basicLessonTitle"></h1>
+          <p id="basicLessonText"></p>
+          <div id="basicLessonDots" class="module-lesson-dots"></div>
+          <div class="module-lesson-actions basic-lesson-actions">
+            <button id="basicLessonBack" class="button button-secondary" type="button">Back</button>
+            <button id="basicLessonSkip" class="button button-secondary" type="button">Skip</button>
+            <button id="basicVoiceButton" class="button button-secondary" type="button" aria-pressed="false">
+              Voice off
+            </button>
+            <button id="basicLessonNext" class="button button-primary" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header class="lab-header">
+      <a class="button button-secondary button-link" href="basics.html">← Basics map</a>
+      <div><p class="eyebrow" id="basicNumber"></p><h1 id="basicTitle"></h1></div>
+      <button id="replayBasicLesson" class="button button-secondary" type="button">Tommy’s lesson</button>
+    </header>
+
+    <main class="module-layout">
+      <aside class="panel module-brief">
+        <p class="panel-kicker">Mission</p>
+        <h2 id="basicMissionTitle"></h2>
+        <p id="basicMissionText"></p>
+        <div id="basicObjectives" class="objective-list"></div>
+        <div class="lesson-card"><p class="panel-kicker">Tommy says</p><p id="basicTip"></p></div>
+      </aside>
+      <section class="module-workspace">
+        <div class="lab-toolbar">
+          <span id="basicStatus">In progress</span>
+          <div>
+            <button id="basicLabVoice" class="button button-secondary" type="button" aria-pressed="false">
+              Tommy voice off
+            </button>
+            <button id="resetBasicLab" class="button button-secondary" type="button">Reset</button>
+            <button id="checkBasicLab" class="button button-primary" type="button">Check result</button>
+          </div>
+        </div>
+        <div id="basicCanvas" class="lab-canvas"></div>
+      </section>
+      <aside class="panel module-score">
+        <p class="panel-kicker">Live results</p>
+        <div class="big-score"><strong id="basicScore">0</strong><span>/ 1000</span></div>
+        <div id="basicMetrics" class="module-metrics"></div>
+        <div class="module-log"><p class="panel-kicker">Live commentary</p><p id="basicCommentary" aria-live="polite"></p></div>
+      </aside>
+    </main>
+
+    <nav class="module-footer">
+      <a id="previousBasic" href="basics.html">← Previous</a>
+      <a id="nextBasic" href="basics.html">Next module →</a>
+    </nav>
+    <script src="basics.js"></script>
+  </body>
+</html>

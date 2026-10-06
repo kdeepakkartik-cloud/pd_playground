@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VLSI Basics Quest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="course.css" />
+  </head>
+  <body>
+    <nav class="track-switcher" aria-label="Course tracks">
+      <strong>Course tracks</strong>
+      <a href="course.html">Physical Design</a>
+      <a class="active" href="basics.html">VLSI Basics</a>
+      <a href="visual-guide.html">Visual playground</a>
+    </nav>
+    <header class="course-hero">
+      <div class="course-title">
+        <div class="course-dog" aria-hidden="true">
+          <span class="ear left"></span><span class="ear right"></span>
+          <span class="face"><i></i><i></i><b></b></span>
+        </div>
+        <div>
+          <p class="eyebrow">TOMMY’S VLSI BASICS ACADEMY</p>
+          <h1>Start with bits. Finish with silicon.</h1>
+          <p>
+            Build the digital, device, process, layout, and HDL foundations
+            needed before entering a physical-design flow.
+          </p>
+        </div>
+      </div>
+      <div class="course-progress">
+        <strong>9</strong><span>foundation modules</span>
+      </div>
+    </header>
+
+    <main class="course-grid">
+      <a class="course-card featured" href="basics-module.html?module=numbers">
+        <span class="module-number">B01</span>
+        <div class="module-symbol numbers-symbol"></div>
+        <p class="eyebrow">DIGITAL BACKGROUND</p>
+        <h2>Number Systems & Arithmetic</h2>
+        <p>Convert values between binary and decimal and understand positional bit weights.</p>
+        <div class="module-tags"><span>Binary</span><span>Arithmetic</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=logic">
+        <span class="module-number">B02</span>
+        <div class="module-symbol logic-symbol"></div>
+        <p class="eyebrow">DIGITAL LOGIC</p>
+        <h2>Logic Gates & Combinational Circuits</h2>
+        <p>Reason about truth tables, Boolean behavior, multiplexers, and AOI logic.</p>
+        <div class="module-tags"><span>Gates</span><span>MUX</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=sequential">
+        <span class="module-number">B03</span>
+        <div class="module-symbol sequential-symbol"></div>
+        <p class="eyebrow">STATE</p>
+        <h2>Sequential Circuits</h2>
+        <p>Use clock edges to capture data and build a target register sequence.</p>
+        <div class="module-tags"><span>Flip-flop</span><span>Clock</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=semiconductor">
+        <span class="module-number">B04</span>
+        <div class="module-symbol semiconductor-symbol"></div>
+        <p class="eyebrow">DEVICE FOUNDATION</p>
+        <h2>Semiconductor Basics</h2>
+        <p>Connect doping, majority carriers, junctions, and substrate concepts.</p>
+        <div class="module-tags"><span>N-type</span><span>P-type</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=cmos">
+        <span class="module-number">B05</span>
+        <div class="module-symbol cmos-symbol"></div>
+        <p class="eyebrow">CMOS BASICS</p>
+        <h2>MOS Devices & CMOS Gates</h2>
+        <p>Operate an inverter and observe complementary NMOS and PMOS switching.</p>
+        <div class="module-tags"><span>NMOS/PMOS</span><span>Noise margin</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=fabrication">
+        <span class="module-number">B06</span>
+        <div class="module-symbol fabrication-symbol"></div>
+        <p class="eyebrow">CMOS PROCESSING</p>
+        <h2>CMOS Fabrication</h2>
+        <p>Arrange well, oxide, polysilicon, implant, contact, and metal steps.</p>
+        <div class="module-tags"><span>Process</span><span>Layers</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=layout">
+        <span class="module-number">B07</span>
+        <div class="module-symbol layout-symbol"></div>
+        <p class="eyebrow">LAYOUT DESIGN</p>
+        <h2>CMOS Layout & Design Rules</h2>
+        <p>Tune widths and spacing to create a compact layout that still passes DRC.</p>
+        <div class="module-tags"><span>Geometry</span><span>DRC</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=terminology">
+        <span class="module-number">B08</span>
+        <div class="module-symbol terminology-symbol"></div>
+        <p class="eyebrow">ENGINEERING LANGUAGE</p>
+        <h2>VLSI Terminology</h2>
+        <p>Match slew, propagation delay, drive strength, nets, pins, cells, and paths.</p>
+        <div class="module-tags"><span>Timing</span><span>Libraries</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="basics-module.html?module=hdl">
+        <span class="module-number">B09</span>
+        <div class="module-symbol hdl-symbol"></div>
+        <p class="eyebrow">HARDWARE DESCRIPTION</p>
+        <h2>Verilog & VHDL Foundations</h2>
+        <p>Connect HDL constructs to the combinational and sequential hardware they infer.</p>
+        <div class="module-tags"><span>RTL</span><span>Synthesis</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+    </main>
+
+    <footer class="course-source">
+      Curriculum topics informed by the
+      <a href="https://www.vlsi-expert.com/p/vlsi-basic.html">
+        VLSI Expert VLSI Basic index
+      </a>.
+      All game explanations, examples, and interactions are original to this course.
+    </footer>
+  </body>
+</html>

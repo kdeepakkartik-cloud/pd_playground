@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physical Design Quest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="course.css" />
+    <link rel="stylesheet" href="visual-guide.css" />
+  </head>
+  <body>
+    <nav class="track-switcher" aria-label="Course tracks">
+      <strong>Course tracks</strong>
+      <a class="active" href="course.html">Physical Design</a>
+      <a href="basics.html">VLSI Basics</a>
+      <a href="visual-guide.html">Visual playground</a>
+    </nav>
+    <header class="course-hero">
+      <div class="course-title">
+        <div class="course-dog" aria-hidden="true">
+          <span class="ear left"></span><span class="ear right"></span>
+          <span class="face"><i></i><i></i><b></b></span>
+        </div>
+        <div>
+          <p class="eyebrow">TOMMY’S PHYSICAL DESIGN ACADEMY</p>
+          <h1>Build a chip, one stage at a time.</h1>
+          <p>
+            Learn the concept, watch the animated explanation, then solve a
+            scored engineering challenge.
+          </p>
+        </div>
+      </div>
+      <div class="course-progress">
+        <strong>12</strong><span>interactive modules</span>
+      </div>
+    </header>
+
+    <section class="beginner-entry" aria-labelledby="beginnerTitle">
+      <p class="eyebrow">FIRST TIME HERE?</p>
+      <h2 id="beginnerTitle">Start with pictures, not a wall of terminology.</h2>
+      <p>Explore seven core ideas through labeled diagrams, adjustable examples, and
+        concept checks before trying the scored labs below. Learn what changes, why it
+        matters, and what a simplified model cannot tell you.</p>
+      <a class="button button-primary button-link" href="visual-guide.html">Start the visual walkthrough</a>
+      <p>New to digital logic? Begin with <a href="basics.html">VLSI Basics</a>.
+        The module order is a learning path, not a rigid tool flow: power and timing work span multiple stages.</p>
+    </section>
+    <main class="course-grid">
+      <a class="course-card featured" href="index.html">
+        <span class="module-number">01</span>
+        <div class="module-symbol floorplan-symbol"></div>
+        <p class="eyebrow">FOUNDATION</p>
+        <h2>Chip Floorplanning</h2>
+        <p>Balance macros, I/O, blockages, halos, channels, and wirelength.</p>
+        <div class="module-tags"><span>Drag & drop</span><span>Congestion</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=placement">
+        <span class="module-number">02</span>
+        <div class="module-symbol placement-symbol"></div>
+        <p class="eyebrow">OPTIMIZATION</p>
+        <h2>Standard-Cell Placement</h2>
+        <p>Place connected cells into legal rows while controlling density and HPWL.</p>
+        <div class="module-tags"><span>Rows</span><span>HPWL</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=power">
+        <span class="module-number">03</span>
+        <div class="module-symbol power-symbol"></div>
+        <p class="eyebrow">RELIABILITY</p>
+        <h2>Power Planning</h2>
+        <p>Build a strap network that reaches hotspots without exhausting metal resources.</p>
+        <div class="module-tags"><span>IR drop</span><span>Straps</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=cts">
+        <span class="module-number">04</span>
+        <div class="module-symbol clock-symbol"></div>
+        <p class="eyebrow">SYNCHRONIZATION</p>
+        <h2>Clock-Tree Synthesis</h2>
+        <p>Insert clock buffers and balance arrival time across sequential sinks.</p>
+        <div class="module-tags"><span>Skew</span><span>Latency</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=routing">
+        <span class="module-number">05</span>
+        <div class="module-symbol routing-symbol"></div>
+        <p class="eyebrow">CONNECTIVITY</p>
+        <h2>Signal Routing</h2>
+        <p>Route through a constrained grid while avoiding blockages and detours.</p>
+        <div class="module-tags"><span>Tracks</span><span>DRC</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=timing">
+        <span class="module-number">06</span>
+        <div class="module-symbol timing-symbol"></div>
+        <p class="eyebrow">PERFORMANCE</p>
+        <h2>Timing Closure</h2>
+        <p>Choose optimization actions that fix setup and hold within a power budget.</p>
+        <div class="module-tags"><span>Slack</span><span>ECO</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=signoff">
+        <span class="module-number">07</span>
+        <div class="module-symbol signoff-symbol"></div>
+        <p class="eyebrow">FINAL CHECK</p>
+        <h2>Signoff Challenge</h2>
+        <p>Diagnose DRC, antenna, timing, and power-integrity violations before tape-out.</p>
+        <div class="module-tags"><span>Diagnosis</span><span>Tape-out</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=hierarchy">
+        <span class="module-number">08</span>
+        <div class="module-symbol hierarchy-symbol"></div>
+        <p class="eyebrow">DESIGN METHODOLOGY</p>
+        <h2>Hierarchical Design Flow</h2>
+        <p>Partition a large chip into manageable blocks while controlling interfaces and top-level crossings.</p>
+        <div class="module-tags"><span>Partitioning</span><span>Integration</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=budget">
+        <span class="module-number">09</span>
+        <div class="module-symbol budget-symbol"></div>
+        <p class="eyebrow">HIERARCHICAL TIMING</p>
+        <h2>Block Timing Budgeting</h2>
+        <p>Distribute a chip-level timing requirement across block delays and global interconnect margin.</p>
+        <div class="module-tags"><span>I/O delays</span><span>Margin</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=sta">
+        <span class="module-number">10</span>
+        <div class="module-symbol sta-symbol"></div>
+        <p class="eyebrow">ANALYSIS FLOW</p>
+        <h2>STA with EDA Tools</h2>
+        <p>Assemble the required design data, constraints, analysis conditions, checks, and reports.</p>
+        <div class="module-tags"><span>SDC/SPEF</span><span>Reports</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=blockages">
+        <span class="module-number">11</span>
+        <div class="module-symbol blockage-symbol"></div>
+        <p class="eyebrow">PHYSICAL CONSTRAINTS</p>
+        <h2>Blockage Engineering</h2>
+        <p>Choose placement, halo, density, and layer-specific routing restrictions for real scenarios.</p>
+        <div class="module-tags"><span>Placement</span><span>Routing</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+
+      <a class="course-card" href="module.html?module=def">
+        <span class="module-number">12</span>
+        <div class="module-symbol def-symbol"></div>
+        <p class="eyebrow">DESIGN DATA</p>
+        <h2>DEF Explorer</h2>
+        <p>Connect physical-layout information to DIEAREA, COMPONENTS, PINS, NETS, and other DEF sections.</p>
+        <div class="module-tags"><span>LEF/DEF</span><span>Data model</span></div>
+        <strong class="launch-label">Launch module →</strong>
+      </a>
+    </main>
+    <footer class="course-source">
+      Curriculum topics informed by the
+      <a href="https://www.vlsi-expert.com/p/physical-design.html">
+        VLSI Expert Physical Design index
+      </a>.
+      All game explanations, examples, and interactions are original to this course.
+    </footer>
+  </body>
+</html>

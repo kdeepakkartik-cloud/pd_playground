@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn physical design with original interactive diagrams, worked examples, and beginner concept checks." />
+    <title>Visual Playground | Physical Design Quest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="course.css" />
+    <link rel="stylesheet" href="visual-guide.css" />
+    <script src="visual-guide.js" defer></script>
+  </head>
+  <body>
+    <a class="guide-skip" href="#guideTitle">Skip to concept</a>
+    <nav class="track-switcher" aria-label="Course tracks">
+      <strong>Physical Design Quest</strong>
+      <a href="course.html">All 12 PD labs</a>
+      <a href="basics.html">VLSI Basics</a>
+      <a class="active" href="visual-guide.html" aria-current="page">Visual playground</a>
+    </nav>
+    <header class="guide-intro">
+      <p class="eyebrow">NEW TO CHIP DESIGN? START HERE</p>
+      <h1>See it. Change it. Understand it.</h1>
+      <p>Physical design turns a netlist (cells and their connections) into a chip layout.
+        Explore seven core ideas, then put each one into practice in Tommy's labs.</p>
+      <p class="guide-note">These are small teaching models, not an EDA tool or a tape-out certification.
+        Real flows iterate: power planning starts early, and timing is checked throughout.</p>
+      <div class="guide-progress">
+        <label for="guideProgress">Concept checks: <strong id="progressText">0 of 7</strong></label>
+        <progress id="guideProgress" max="7" value="0"></progress>
+        <span>Saved in this browser; separate from lab scores.</span>
+      </div>
+      <p id="storageNotice" role="status" hidden></p>
+    </header>
+    <nav id="conceptNav" class="concept-nav" aria-label="Explore a concept"></nav>
+    <main class="guide-layout">
+      <article class="guide-concept">
+        <p class="eyebrow" id="guideStage"></p>
+        <h2 id="guideTitle" tabindex="-1"></h2>
+        <p id="guideExplanation" class="guide-lead"></p>
+        <figure class="guide-figure">
+          <div id="guideDiagram" role="region" tabindex="0" aria-label="Concept diagram; scroll horizontally on small screens"></div>
+          <figcaption id="guideCaption"></figcaption>
+        </figure>
+        <section class="guide-experiment" aria-labelledby="experimentTitle">
+          <h3 id="experimentTitle">Try one change</h3>
+          <p id="experimentPrompt"></p>
+          <div id="experimentControls"></div>
+          <div id="experimentResult" class="experiment-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        </section>
+        <div class="guide-two-up">
+          <section class="guide-insight">
+            <h3>Why it matters</h3>
+            <p id="guideWhy"></p>
+          </section>
+          <section class="guide-insight misconception">
+            <h3>A common misconception</h3>
+            <p id="guideMyth"></p>
+          </section>
+        </div>
+        <details class="guide-glossary">
+          <summary>Words in this picture</summary>
+          <dl id="guideGlossary"></dl>
+        </details>
+        <section class="guide-check" aria-labelledby="checkTitle">
+          <p class="eyebrow">EXPLAIN IT BACK</p>
+          <h3 id="checkTitle"></h3>
+          <div id="checkChoices"></div>
+          <p id="checkFeedback" role="status" aria-live="polite"></p>
+        </section>
+      </article>
+      <aside class="guide-sidebar">
+        <section class="guide-insight">
+          <p class="eyebrow">TOMMY'S LEARNING LOOP</p>
+          <h2>From picture to practice</h2>
+          <ol>
+            <li>Read the picture and its labels.</li>
+            <li>Predict what a control will change.</li>
+            <li>Try it and explain the result.</li>
+            <li>Solve the matching lab.</li>
+          </ol>
+          <a id="guideLab" class="button button-primary button-link" href="index.html">Enter the lab</a>
+          <button id="nextConcept" class="button button-secondary" type="button">Next concept</button>
+        </section>
+        <section class="guide-insight">
+          <h2>Read more, not just memorize</h2>
+          <p>VLSI Expert is the concept-reading companion. Tool documentation adds implementation context.</p>
+          <ul id="guideSources"></ul>
+          <p class="guide-note">Links open external references. All diagrams, worked examples, and questions here are original; no source images are copied.</p>
+        </section>
+        <section class="guide-insight">
+          <h2>Need the foundations?</h2>
+          <p>Start with logic gates, flip-flops, and CMOS if cells, data, or clock edges are unfamiliar.</p>
+          <a href="basics.html">Explore the nine VLSI Basics modules</a>
+        </section>
+      </aside>
+    </main>
+    <footer class="course-source">
+      Original SVG illustrations generated in the browser, with text equivalents.
+      Not to scale. Numerical examples are illustrative, not process design rules.
+      <a href="course.html">Continue to the complete course</a>.
+    </footer>
+    <noscript><p class="guide-intro">Enable JavaScript for interactive diagrams and concept checks.
+      The <a href="course.html">course map</a> and <a href="https://www.vlsi-expert.com/">VLSI Expert reading</a> remain available.</p></noscript>
+  </body>
+</html>

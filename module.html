@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physical Design Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="course.css" />
+  </head>
+  <body class="module-page lesson-open">
+    <section id="moduleLesson" class="module-lesson" role="dialog" aria-modal="true">
+      <div class="module-lesson-card">
+        <div class="lesson-tommy">
+          <div class="course-dog large" aria-hidden="true">
+            <span class="ear left"></span><span class="ear right"></span>
+            <span class="face"><i></i><i></i><b></b></span>
+          </div>
+          <strong>Tommy</strong>
+          <span>Physical Design Mentor</span>
+          <p id="moduleSpeech"></p>
+        </div>
+        <div class="module-board">
+          <div class="demo-screen" id="demoScreen">
+            <span class="demo-chip"></span>
+            <span class="demo-node one"></span>
+            <span class="demo-node two"></span>
+            <span class="demo-node three"></span>
+            <span class="demo-path"></span>
+            <strong id="demoWord"></strong>
+          </div>
+          <p class="eyebrow" id="lessonKicker"></p>
+          <h1 id="lessonTitle"></h1>
+          <p id="lessonText"></p>
+          <div id="moduleLessonDots" class="module-lesson-dots"></div>
+          <div class="module-lesson-actions">
+            <button id="moduleLessonBack" class="button button-secondary" type="button">
+              Back
+            </button>
+            <button id="moduleLessonSkip" class="button button-secondary" type="button">
+              Skip
+            </button>
+            <button id="moduleLessonNext" class="button button-primary" type="button">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header class="lab-header">
+      <a class="button button-secondary button-link" href="course.html">← Course map</a>
+      <div>
+        <p class="eyebrow" id="moduleNumber"></p>
+        <h1 id="moduleTitle"></h1>
+      </div>
+      <button id="replayModuleLesson" class="button button-secondary" type="button">
+        Tommy’s lesson
+      </button>
+    </header>
+
+    <main class="module-layout">
+      <aside class="panel module-brief">
+        <p class="panel-kicker">Mission</p>
+        <h2 id="missionTitle"></h2>
+        <p id="missionText"></p>
+        <div id="moduleObjectives" class="objective-list"></div>
+        <div class="lesson-card">
+          <p class="panel-kicker">Tommy says</p>
+          <p id="moduleTip"></p>
+        </div>
+        <div class="lesson-card">
+          <p class="panel-kicker">Need a picture first?</p>
+          <p>Explore the related core concept with a labeled diagram and a small experiment.</p>
+          <a id="moduleVisualGuide" class="button button-secondary button-link" href="visual-guide.html">
+            Visual explanation
+          </a>
+          <p>Lab metrics are teaching models, not signoff analysis.</p>
+        </div>
+      </aside>
+
+      <section class="module-workspace">
+        <div class="lab-toolbar">
+          <span id="labStatus">In progress</span>
+          <div>
+            <button id="resetLab" class="button button-secondary" type="button">Reset</button>
+            <button id="checkLab" class="button button-primary" type="button">Check result</button>
+          </div>
+        </div>
+        <div id="labCanvas" class="lab-canvas"></div>
+      </section>
+
+      <aside class="panel module-score">
+        <p class="panel-kicker">Live results</p>
+        <div class="big-score"><strong id="moduleScore">0</strong><span>/ 1000</span></div>
+        <div id="moduleMetrics" class="module-metrics"></div>
+        <div class="module-log">
+          <p class="panel-kicker">Live commentary</p>
+          <p id="moduleCommentary" aria-live="polite"></p>
+        </div>
+      </aside>
+    </main>
+
+    <nav class="module-footer">
+      <a id="previousModule" href="course.html">← Previous</a>
+      <a id="nextModule" href="course.html">Next module →</a>
+    </nav>
+    <script src="module.js"></script>
+  </body>
+</html>
